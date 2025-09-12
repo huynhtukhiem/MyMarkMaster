@@ -3,6 +3,8 @@ Ngày 1:
 => Với mỗi học phần lý thuyết, thực hành, tích hợp sẽ có cách tính điểm khác nhau
 + Tìm hiểu được một học phần sẽ gồm những gì
 => Tên, tín chỉ, điểm thường kì lý thuyết và thực hành nếu có, điểm giữa kì, điểm cuối kì, điểm trung bình, điểm chữ, xếp loại
++ Lập trình thành công tính năng lưu trữ thông tin sinh viên (làm đẹp phần mềm sau này)
+=> Tên, ngày sinh,.... 
 
 Ngày 2:
 Lập trình mô phỏng thành công cách nhập thông tin một môn học và in ra thông tin môn học đó với giao diện console đơn giản trong C++
