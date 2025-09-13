@@ -7,5 +7,5 @@ Ngày 1:
 => Tên, ngày sinh,.... 
 
 Ngày 2:
-+ Lập trình mô phỏng thành công cách nhập thông tin một môn học và in ra thông tin môn học đó với giao diện console đơn giản trong C++
++ Lập trình mô phỏng thành công cách nhập thông tin một môn học lý thuyết và in ra thông tin môn học đó với giao diện console đơn giản trong C++
 => Với mỗi loại thành phần trong môn học sẽ dẫn đến một logic khác nhau VD: số tín chỉ lý thuyết = 2 thì sẽ có 2 cột lý thuyết tương tự với 3 4 5.
