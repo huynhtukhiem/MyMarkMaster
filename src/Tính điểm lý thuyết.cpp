@@ -37,7 +37,7 @@ struct Mon_hoc{
 // Viết prototype để không cần quan tâm đến thứ tự khai báo hàm sau này nếu có lỗi và đông thời nêu ý nghĩa của nó
 void Nhap_monhoc_moi(Mon_hoc &mh); // Hàm dùng để nhập thông tin liên quan đến môn học
 void In_thongtin_monhoc(Mon_hoc mh); // Hàm in ra thông tin của môn học
-double Tinh_diem_lythuyet(double a, double b, double c); // Hàm tính điểm trung bình đối với học phần lý thuyết
+double Tinh_diem_lythuyet(Mon_hoc &mh); // Hàm tính điểm trung bình đối với học phần lý thuyết
 string Xu_ly_chuoi(string s); // Hàm dùng để đưa chuỗi ký tự về đúng định dạng: In hoa chữ đầu và tất cả chữ còn lại in thường
 //-------------------------------------------------------
 
@@ -68,6 +68,7 @@ void Nhap_monhoc_moi(Mon_hoc &mh){
             cin >> mh.lt[i];
         }
     }
+
     cout << "Nhap diem thi giua ki: ";
     cin >> mh.gk;
     cout << "Nhap diem thi cuoi ki: ";
@@ -77,6 +78,7 @@ void Nhap_monhoc_moi(Mon_hoc &mh){
 // Hàm in ra thông tin của môn học
 void In_thongtin_monhoc(Mon_hoc mh){
     // Cần một hàm xử lý chuỗi để đưa về dạng chuẩn nhất: viết hoa chữ đầu tiên và tất cả chữ còn lại viết thường
+    cout << "--------------------------------------------" << endl;
     cout << "Ten mon hoc: " << Xu_ly_chuoi(mh.name) << endl;
     cout << "Tin chi: " << mh.tc << endl;
     cout << "Loai hoc phan: " << Xu_ly_chuoi(mh.loai) << endl;
@@ -84,14 +86,17 @@ void In_thongtin_monhoc(Mon_hoc mh){
     for(int i = 0; i < mh.sclt; i++){
         cout << "Thuong ki " << i+1 << ": " << mh.lt[i] << endl;
     }
-    cout << "Diem thi giua ki: " << mh.gk;
-    cout << "Diem thi cuoi ki: " << mh.ck;
-    cout << "Diem trung binh tong ket he 10: " << Tinh_diem_lythuyet();
+    cout << "Diem thi giua ki: " << mh.gk << endl;
+    cout << "Diem thi cuoi ki: " << mh.ck << endl;
+    cout << "Diem trung binh tong ket he 10: " << Tinh_diem_lythuyet(mh) << endl;
 }
 // Hàm tính điểm trung bình đối với học phần lý thuyết
-double Tinh_diem_lythuyet(double a, double b, double c){
-    double dtb_lythuyet;
-    dtb_lythuyet = a * 0.2 + b * 0.3 + c * 0.5;
+double Tinh_diem_lythuyet(Mon_hoc &mh){
+    double dtb_lythuyet = 0.0;
+    for(int i = 0; i < mh.sclt; i++){
+        dtb_lythuyet += mh.lt[i]; // Tổng điểm thường kì 
+    }
+    dtb_lythuyet /= mh.sclt; // Tổng điểm chia số chỉ => điểm trung bình
     return dtb_lythuyet;
 }
 // Hàm dùng để đưa chuỗi ký tự về đúng định dạng: In hoa chữ đầu và các chữ còn lại in thường
@@ -112,6 +117,5 @@ int main(){
     cout << "Chuc nang: Them thong tin mon hoc moi" << endl;
     Nhap_monhoc_moi(mh);
     In_thongtin_monhoc(mh);
-
     return 0;
 }
